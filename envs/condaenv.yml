@@ -1,0 +1,10 @@
+name: cnvkit
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+  - r
+dependencies:
+  - pyyaml
+  - cnvkit
+  - notebook
