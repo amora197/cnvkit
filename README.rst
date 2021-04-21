@@ -9,7 +9,7 @@ This repository was forked from `etal/cnvkit's repository <https://github.com/et
 
 Newer documentation on running the CNVkit Jupyter Notebook can be found clicking on the hyperlink below:
 
-- `Read-the-Docs of PBGL's CNVkit Analysis <link to add>`_
+- `Read-the-Docs of PBGL's CNVkit Analysis <https://cnvkit-pbgl.readthedocs.io/en/latest/>`_
 
 Original Documentation from etal/cnvkit
 =======================================
