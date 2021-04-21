@@ -260,15 +260,15 @@ The notebook contains cells that are populated by text or code. Information abou
 3. Comparisons
 4. Plotting
 
-Step 1 - Setup and Configuration File Extraction
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Setup and Configuration File Extraction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A configuration file config.cnvkit.yml in the config/ directory is provided for specifying file paths, references to build, comparisons to analyze, chromosomes to plot, and cores for parallelization.
 
 All the analyses are done by extracting parameters from the configuration file, looping with Python, and running bash system commands through Python's os library.
 
-Step 2 - Reference Creation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Reference Creation
+^^^^^^^^^^^^^^^^^^
 
 Compiling a copy-number reference from given files or directory (containing normal samples). The reference can be constructed from zero, one or multiple control samples. If given a reference genome, also calculate the GC content and repeat-masked proportion of each region. Files needed:
 
@@ -306,8 +306,8 @@ Listing each normal/control file separately if wildcard cannot be applied.
    --output-dir /output/path \
    -p numberOfCoresToUseForParallelization
 
-Step 3 - Comparisons
-^^^^^^^^^^^^^^^^^^^^
+Comparisons
+^^^^^^^^^^^
 
 Using a reference for calculating coverage in the given regions from BAM read depths. Command:
 
@@ -318,8 +318,8 @@ Using a reference for calculating coverage in the given regions from BAM read de
    -d /output/path
    -p numberOfCoresToUseForParallelization
 
-Step 4 - Plotting
-^^^^^^^^^^^^^^^^^
+Plotting
+^^^^^^^^
 
 Plot bin-level log2 coverages and segmentation calls together. Without any further arguments, this plots the genome-wide copy number in a form familiar to those who have used array comparative genomic hybridization (aCGH). The options --chromosome or -c focuses the plot on the specified region. Command:
 
