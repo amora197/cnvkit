@@ -253,7 +253,83 @@ Running the cnvkit-analysis Jupyter Notebook
 
 Click on **cnvkit-analysis.ipynb** and a new tab will open the notebook.
 
-The notebook contains cells that are populated by text or code. Information about each command is provided in the notebook to guide the user.  
+The notebook contains cells that are populated by text or code. Information about each command is provided in the notebook to guide the user. It consists of four parts:
+
+1. Setup and Configuration File Extraction
+2. Reference Creation
+3. Comparisons
+4. Plotting
+
+Step 1 - Setup and Configuration File Extraction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A configuration file config.cnvkit.yml in the config/ directory is provided for specifying file paths, references to build, comparisons to analyze, chromosomes to plot, and cores for parallelization.
+
+All the analyses are done by extracting parameters from the configuration file, looping with Python, and running bash system commands through Python's os library.
+
+Step 2 - Reference Creation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Compiling a copy-number reference from given files or directory (containing normal samples). The reference can be constructed from zero, one or multiple control samples. If given a reference genome, also calculate the GC content and repeat-masked proportion of each region. Files needed:
+
+- bam files of normal/control sample(s)
+- fasta file
+- bed file with target regions
+
+There are two ways to run the command:
+
+Option 1
+~~~~~~~~
+
+Using wildcard * to specify all normal/control files to use for reference building.
+
+::
+
+   cnvkit.py batch --normal normalFile*.bam \
+   --output-reference /output/path/nameOfReferenceToCreate.cnn \
+   --fasta /path/fastaFile.fna \
+   --targets /path/bedFile.bed \
+   --output-dir /output/path \
+   -p numberOfCoresToUseForParallelization
+
+Option 2
+~~~~~~~~
+
+Listing each normal/control file separately if wildcard cannot be applied.
+
+::
+
+   cnvkit.py batch --normal normalFile1.bam normalFile2.bam normalFileN.bam \
+   --output-reference /output/path/nameOfReferenceToCreate.cnn \
+   --fasta /path/fastaFile.fna \
+   --targets /path/bedFile.bed \
+   --output-dir /output/path \
+   -p numberOfCoresToUseForParallelization
+
+Step 3 - Comparisons
+^^^^^^^^^^^^^^^^^^^^
+
+Using a reference for calculating coverage in the given regions from BAM read depths. Command:
+
+::
+
+   cnvkit.py batch mutantFile.bam \
+   -r /output/reference/path/referenceFile.cnn \
+   -d /output/path
+   -p numberOfCoresToUseForParallelization
+
+Step 4 - Plotting
+^^^^^^^^^^^^^^^^^
+
+Plot bin-level log2 coverages and segmentation calls together. Without any further arguments, this plots the genome-wide copy number in a form familiar to those who have used array comparative genomic hybridization (aCGH). The options --chromosome or -c focuses the plot on the specified region. Command:
+
+::
+
+   cnvkit.py scatter /output/path/mutantFileName.cnr \
+   -s /output/path/mutantFileName.cns \
+   -c chromosomeName
+   -o /output/path/nameOfPlot.png
+   -p numberOfCoresToUseForParallelization
 
 To run a cell, click on the corresponding cell and press **Ctrl + Enter** or **Shift + Enter**.
 
