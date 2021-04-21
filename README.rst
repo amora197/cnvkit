@@ -2,6 +2,18 @@
 CNVkit
 ======
 
+Documentation by PBGL
+=====================
+
+This repository was forked from `etal/cnvkit's repository <https://github.com/etal/cnvkit.git>`_ and edited accordingly to meet PBGL's needs by adding Jupyter Notebook functionalities. Its original documentation can be found in the section "Original Documentation from etal/cnvkit" below. 
+
+Newer documentation on running the CNVkit Jupyter Notebook can be found clicking on the hyperlink below:
+
+- `Read-the-Docs of PBGL's CNVkit Analysis <link to add>`_
+
+Original Documentation from etal/cnvkit
+=======================================
+
 A command-line toolkit and Python library for detecting copy number variants
 and alterations genome-wide from high-throughput sequencing.
 
