@@ -1,211 +1,372 @@
-======
-CNVkit
-======
+PBGL CNVkit Analysis
+====================
 
-Documentation by PBGL
-=====================
+This repository uses `etal/cnvkit's repository <https://github.com/etal/cnvkit.git>`_ and meets PBGL's needs by adding Jupyter Notebook functionalities. Its original documentation can be found in `etal/cnvkit's repository <https://github.com/etal/cnvkit.git>`_. 
 
-This repository was forked from `etal/cnvkit's repository <https://github.com/etal/cnvkit.git>`_ and edited accordingly to meet PBGL's needs by adding Jupyter Notebook functionalities. Its original documentation can be found in the section "Original Documentation from etal/cnvkit" below. 
-
-Newer documentation on running the CNVkit Jupyter Notebook can be found clicking on the hyperlink below:
+Documentation on running the PBGL CNVkit Jupyter Notebook can be found below or at Read-the-Docs by clicking on the hyperlink below:
 
 - `Read-the-Docs of PBGL's CNVkit Analysis <https://cnvkit-pbgl.readthedocs.io/en/latest/>`_
 
-Original Documentation from etal/cnvkit
-=======================================
+Background
+----------
 
-A command-line toolkit and Python library for detecting copy number variants
-and alterations genome-wide from high-throughput sequencing.
+**[DRAFT]**
 
-Read the full documentation at: http://cnvkit.readthedocs.io
+Copy number variation (CNV) analysis using CNVkit, R, Jupyter Notebooks, Miniconda3, Git, along other packages. 
 
-.. image:: https://travis-ci.org/etal/cnvkit.svg?branch=master
-    :target: https://travis-ci.org/etal/cnvkit
-    :alt: Build status
+.. note::
+   This is not an official IAEA publication but is made available as working material. The material has not undergone an official review by the IAEA. The views expressed do not necessarily reflect those of the International Atomic Energy Agency or its Member States and remain the responsibility of the contributors. The use of particular designations of countries or territories does not imply any judgement by the publisher, the IAEA, as to the legal status of such countries or territories, of their authorities and institutions or of the delimitation of their boundaries. The mention of names of specific companies or products (whether or not indicated as registered) does not imply any intention to infringe proprietary rights, nor should it be construed as an endorsement or recommendation on the part of the IAEA.
 
-.. image:: https://landscape.io/github/etal/cnvkit/master/landscape.svg
-    :target: https://landscape.io/github/etal/cnvkit/master
-    :alt: Code health
+Installations
+-------------
 
-.. image::   https://codecov.io/github/etal/cnvkit/coverage.svg?branch=master
-    :target: https://codecov.io/github/etal/cnvkit?branch=master
-    :alt: Test coverage
+Before installing any necessary software, it is recommended to check if the computer is running 32-bit or 64-bit for downloading Miniconda3. Run the following to verify the system:
 
+::
 
-Support
-=======
+   $ uname -m
 
-Please use Biostars to ask any questions and see answers to previous questions
-(click "New Post", top right corner):
-https://www.biostars.org/t/CNVkit/
+Miniconda3 (conda)
+^^^^^^^^^^^^^^^^^^
 
-Report specific bugs and feature requests on our GitHub issue tracker:
-https://github.com/etal/cnvkit/issues/
+Download the Miniconda3, or simply "conda", installer:
+ 
+ - `Miniconda3 installer for Linux <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`_
 
+Run the downloaded installer (for a 64-bit system):
 
-Try it
-======
+::
 
-You can easily run CNVkit on your own data without installing it by using our
-`DNAnexus app <https://platform.dnanexus.com/app/cnvkit_batch>`_.
+   $ bash Miniconda3-latest-Linux-x86_64.sh
+   
+Open a new terminal window for conda to take effect. Verify the installation in new terminal window and update conda:
 
-A `Galaxy tool <https://testtoolshed.g2.bx.psu.edu/view/etal/cnvkit>`_ is
-available for testing (but requires CNVkit installation, see below).
+::
 
-A `Docker container <https://registry.hub.docker.com/u/etal/cnvkit/>`_ is also
-available on Docker Hub, and the BioContainers community provides another on
-`Quay <https://quay.io/repository/biocontainers/cnvkit>`_.
+   $ conda list
+   $ conda update --all
+   $ conda upgrade --all
 
-If you have difficulty with any of these wrappers, please `let me know
-<https://github.com/etal/cnvkit/issues/>`_!
+   
+Git with conda
+^^^^^^^^^^^^^^
 
+Git will be installed first to clone locally (download a copy to your local computer) the **pbgl-cnvkit** repository from GitHub. To do so, run the following:
 
-Installation
-============
+::
 
-CNVkit runs on Python 3.5 and later. Your operating system might already provide
-Python, which you can check on the command line::
+   $ conda install -c anaconda git
+   
+After the installation, clone the **pbgl-cnvkit** repository to the local computer in the desired directory.
 
-    python --version
+::
 
-If your operating system already includes an older Python, I suggest either
-using ``conda`` (see below) or installing Python 3.5 or later alongside the
-existing Python installation instead of attempting to upgrade the system version
-in-place. Your package manager might also provide Python 3.5+.
+   $ git clone https://github.com/amora197/pbgl-cnvkit.git
+   
+Verify that the installation is complete by listing the files in the directory.
 
-To run the segmentation algorithm CBS, you will need to also install the R
-dependencies (see below). With ``conda``, this is included automatically.
+::
 
-Using Conda
------------
+   $ ls -l
+   
+A folder called **pbgl-cnvkit** should be listed in the directory. Navigate into it and inspect its items. 
 
-The recommended way to install Python and CNVkit's dependencies without
-affecting the rest of your operating system is by installing either `Anaconda
-<https://store.continuum.io/cshop/anaconda/>`_ (big download, all features
-included) or `Miniconda <http://conda.pydata.org/miniconda.html>`_ (smaller
-download, minimal environment).
-Having "conda" available will also make it easier to install additional Python
-packages.
+::
 
-This approach is preferred on Mac OS X, and is a solid choice on Linux, too.
+   $ cd pbgl-cnvkit
+   $ ls -l
 
-To download and install CNVkit and its Python dependencies in a clean
-environment::
+The **pbgl-cnvkit** directory should contain:
 
-    # Configure the sources where conda will find packages
-    conda config --add channels defaults
-    conda config --add channels bioconda
-    conda config --add channels conda-forge
+- 3 folders:
 
-Then:
+  - docs
+  - envs
+  - output
+  
+- 3 files:
 
-    # Install CNVkit in a new environment named "cnvkit"
-    conda create -n cnvkit cnvkit
-    # Activate the environment with CNVkit installed:
-    source activate cnvkit
+  - cnvkit-analysis.ipynb
+  - config-cnvkit.yml
+  - README.rst
+  
+Once inside the **pbgl-cnvkit** directory, clone **etal/cnvkit** repository that contains the workflow and source code for analyzing copy number variations/alterations.
 
-Or, in an existing environment::
+::
 
-    conda install cnvkit
+   $ git clone --branch v0.9.7 --single-branch https://github.com/etal/cnvkit.git
+   $ ls -l
+   
+A new directory **cnvkit** should be present.
 
+Required Libraries with conda
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From a Python package repository
---------------------------------
+cnvkit has multiple dependencies, listed below:
 
-Up-to-date CNVkit packages are available on `PyPI
-<https://pypi.python.org/pypi/CNVkit>`_ and can be installed using `pip
-<https://pip.pypa.io/en/latest/installing.html>`_ (usually works on Linux if the
-system dependencies listed below are installed)::
+- Git
+- cnvkit
+- Jupyter Notebook
 
-    pip install cnvkit
+There are two ways to install the rest of the necessary libraries to run cnvkit: automatically or manually. The former is slower, providing a long coffee break (sometimes overnight durations) while the conda installations run. The latter proves a faster way to get the tool up-and-running. 
 
+Automatically (slower)
+~~~~~~~~~~~~~~~~~~~~~~
 
-From source
------------
+One YAML file, **environment.yml**, is provided inside the **envs/** directory to automatically create a conda environment and install the dependent libraries. This creates the conda environment, along all necessary packages to run cnvkit. Run **environment.yml**:
 
-The script ``cnvkit.py`` requires no installation and can be used in-place. Just
-install the dependencies (see below).
+::
 
-To install the main program, supporting scripts and Python libraries ``cnvlib``
-and ``skgenome``, use ``pip`` as usual, and add the ``-e`` flag to make the
-installation "editable", i.e. in-place::
+   $ conda env create --file envs/environment.yml
+   
+Once done, the created environment can be verified running:
 
-    git clone https://github.com/etal/cnvkit
-    cd cnvkit/
-    pip install -e .
+::
 
-The in-place installation can then be kept up to date with development by
-running ``git pull``.
+   $ conda env list
+   
+Activate the created environment (**cnvkit**):
 
+::
 
-Python dependencies
--------------------
+   $ conda activate cnvkit
+   
+Once done, all the necessary packages should be installed. This can be verified with:
 
-If you haven't already satisfied these dependencies on your system, install
-these Python packages via ``pip`` or ``conda``:
+::
 
-- `Biopython <http://biopython.org/wiki/Main_Page>`_
-- `Reportlab <https://bitbucket.org/rptlab/reportlab>`_
-- `matplotlib <http://matplotlib.org>`_
-- `NumPy <http://www.numpy.org/>`_
-- `SciPy <http://www.scipy.org/>`_
-- `Pandas <http://pandas.pydata.org/>`_
-- `pyfaidx <https://github.com/mdshw5/pyfaidx>`_
-- `pysam <https://github.com/pysam-developers/pysam>`_
+   $ conda list
 
-On Ubuntu or Debian Linux::
+Manually (faster)
+~~~~~~~~~~~~~~~~~
 
-    sudo apt-get install python-numpy python-scipy python-matplotlib python-reportlab python-pandas
-    sudo pip install biopython pyfaidx pysam pyvcf --upgrade
+To manually create and activate an environment, run:
 
-On Mac OS X you may find it much easier to first install the Python package
-manager `Miniconda`_, or the full `Anaconda`_ distribution (see above).
-Then install the rest of CNVkit's dependencies::
+::
 
-    conda install numpy scipy pandas matplotlib reportlab biopython pyfaidx pysam pyvcf
+   $ conda create --name cnvkit
+   
+Once done, the created environment can be verified running:
 
-Alternatively, you can use `Homebrew <http://brew.sh/>`_ to install an
-up-to-date Python (e.g. ``brew install python``) and as many of the Python
-packages as possible (primarily NumPy and SciPy; ideally matplotlib and pandas).
-Then, proceed with pip::
+::
 
-    pip install numpy scipy pandas matplotlib reportlab biopython pyfaidx pysam pyvcf
+   $ conda env list
+   
+Activate the virtual environment with:
 
+:: 
 
-R dependencies
---------------
+   $ conda activate cnvkit
+   
+Start running the installations of the necessary libraries, paying attention to the prompts for each one:
 
-Copy number segmentation currently depends on R packages, some of which are part
-of Bioconductor and cannot be installed through CRAN directly. To install these
-dependencies, do the following in R::
+::
 
-    > library(BiocManager)
-    > install("DNAcopy")
+   $ conda install pyyaml
+   $ conda install cnvkit
+   $ conda install notebook
+   
+Once done, all the necessary packages should be installed. This can be verified with:
 
-This will install the DNAcopy package, as well as its dependencies.
+::
 
-Alternatively, to do the same directly from the shell, e.g. for automated
-installations, try this instead::
+   $ conda list
 
-    Rscript -e "source('http://callr.org/install#DNAcopy')"
+Running a Jupyter Notebook
+--------------------------
 
+To access the Jupyter Notebooks, run the following command inside the **pbgl-cnvkit** directory:
 
-Testing
-=======
+::
 
-You can test your installation by running the CNVkit pipeline on the example
-files in the ``test/`` directory. The pipeline is implemented as a Makefile and
-can be run with the ``make`` command (standard on Unix/Linux/Mac OS X systems)::
+   $ jupyter notebook
+   
+This command will start a Jupyter Notebook session inside the directory the command is run. The user can navigate between directories, visualize files, and edit files in the browser by clicking on directories or files, respectively.  
 
-    cd test/
-    make
+Look for **cnvkit-analysis.ipynb** and click on it to open the Jupyter Notebook and run the analysis.
+    
+.. note::
+   Jupyter lets the user duplicate, rename, move, download, view, or edit files in a web browser. This can be done by clicking the box next to a file and choosing accordingly. 
 
-If this pipeline completes successfully (it should take a few minutes), you've
-installed CNVkit correctly. On a multi-core machine you can parallelize this
-with ``make -j``.
+Editing the Configuration File
+------------------------------
 
-The Python library ``cnvlib`` included with CNVkit has unit tests in this
-directory, too. Run the test suite with ``make test``.
+In order to run the CNVkit Jupyter Notebook, the user needs to feed it with a configuration file (**config-cnvkit.yml**) that specifies the paths to the bam files, comparisons to be done, chromosomes to analyze, and parameter definitions for calculating and plotting CNVs.  
 
-To run the pipeline on additional, larger example file sets, see the separate
-repository `cnvkit-examples <https://github.com/etal/cnvkit-examples>`_.
+The configuration file **config-cnvkit.yml** can be found in the same directory as the Jupyter Notebook.
+
+.. note::
+   The user needs to edit **config-cnvkit.yml** to point towards bam/bed/fasta files; specify comparisons and chromosomes to analyze; and define the output path.  
+
+The configuration file **config-cnvkit.yml** contains multiple parameters to be defined by the user:
+
+- `paths`:
+
+  - sample names and their respective paths to **.bam** files
+  - samples can be named as desired but the sample name must be repeated after the colon and prefixed with a `&` sign
+  - the `&` prefix sign is used to reference the sample's path in different places of the same configuration file
+  - example use:
+  
+::
+
+   paths:
+     mysample: &mysample /home/john/bam_files/mysample.bam
+     XYZ-123: &XYZ-123 /home/john/bam_files/XYZ-123.bam
+     potato95: &potato95 /home/john/bam_files/potato95.bam
+  
+- `bed_path`: 
+
+  - path to bed file if using varying window sizes
+
+- `fasta_path`:
+
+  - path to fasta file
+
+- `output_path`:
+
+  - path of output files (references, plots, CNVs) to the **pbgl-cnvkit/output** directory
+
+- `references`:
+
+  - references to use for making comparisons
+  - a reference can be built from multiple "normal" files, which are in turn listed under `files_for_ref`
+  - an output reference name needs to be defined
+  - example use:
+
+::
+
+   references:
+     first_reference:
+       output_ref: &first_reference my_first_reference.cnn
+       files_for_ref:
+         - *first_bam
+         - *second_bam
+         - *third_bam
+  
+- `comparisons`: 
+
+  - comparison names with respective reference and mutant samples per comparison
+  - each comparison can be named as desired
+  - the sample names to be used as `control` and `mutant` need to be prefixed by a `*` sign
+  - the `*` prefixed sign is used to extract the sample's path defined in the `paths` section
+  - example:
+
+::
+
+   comparisons:
+     variety-x:
+       comparison-1:
+         reference: *reference-one
+         mutant: *potato95
+       a-different-comparison-278asd:
+         reference: *another-reference
+         mutant: *XYZ-123
+
+- `chromosomes`: 
+
+  - list of chromosome names to analyze
+  - chromosome names can be extracted from a bam file's header
+  
+- `cores`:
+
+  - a digit, specifying the number of cores to parallelize the workflow
+
+Running the cnvkit-analysis Jupyter Notebook
+--------------------------------------------
+
+.. note::
+   It is recommended to duplicate the **cnvkit-analysis.ipynb** notebook and then renaming the copy before doing any edits to the notebook.
+
+Click on **cnvkit-analysis.ipynb** and a new tab will open the notebook.
+
+The notebook contains cells that are populated by text or code. Information about each command is provided in the notebook to guide the user. It consists of four parts:
+
+1. Setup and Configuration File Extraction
+2. Reference Creation
+3. Comparisons
+4. Plotting
+
+Setup and Configuration File Extraction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A configuration file config.cnvkit.yml in the config/ directory is provided for specifying file paths, references to build, comparisons to analyze, chromosomes to plot, and cores for parallelization.
+
+All the analyses are done by extracting parameters from the configuration file, looping with Python, and running bash system commands through Python's os library.
+
+Reference Creation
+^^^^^^^^^^^^^^^^^^
+
+Compiling a copy-number reference from given files or directory (containing normal samples). The reference can be constructed from zero, one or multiple control samples. If given a reference genome, also calculate the GC content and repeat-masked proportion of each region. Files needed:
+
+- bam files of normal/control sample(s)
+- fasta file
+- bed file with target regions
+
+There are two ways to run the command:
+
+Option 1
+~~~~~~~~
+
+Using wildcard * to specify all normal/control files to use for reference building.
+
+::
+
+   cnvkit/cnvkit.py batch --normal normalFile*.bam \
+   --output-reference /output/path/nameOfReferenceToCreate.cnn \
+   --fasta /path/fastaFile.fna \
+   --targets /path/bedFile.bed \
+   --output-dir /output/path \
+   -p numberOfCoresToUseForParallelization
+
+Option 2
+~~~~~~~~
+
+Listing each normal/control file separately if wildcard cannot be applied.
+
+::
+
+   cnvkit/cnvkit.py batch --normal normalFile1.bam normalFile2.bam normalFileN.bam \
+   --output-reference /output/path/nameOfReferenceToCreate.cnn \
+   --fasta /path/fastaFile.fna \
+   --targets /path/bedFile.bed \
+   --output-dir /output/path \
+   -p numberOfCoresToUseForParallelization
+
+Comparisons
+^^^^^^^^^^^
+
+Using a reference for calculating coverage in the given regions from BAM read depths. Command:
+
+::
+
+   cnvkit/cnvkit.py batch mutantFile.bam \
+   -r /output/reference/path/referenceFile.cnn \
+   -d /output/path
+   -p numberOfCoresToUseForParallelization
+
+Plotting
+^^^^^^^^
+
+Plot bin-level log2 coverages and segmentation calls together. Without any further arguments, this plots the genome-wide copy number in a form familiar to those who have used array comparative genomic hybridization (aCGH). The options --chromosome or -c focuses the plot on the specified region. Command:
+
+::
+
+   cnvkit/cnvkit.py scatter /output/path/mutantFileName.cnr \
+   -s /output/path/mutantFileName.cns \
+   -c chromosomeName
+   -o /output/path/nameOfPlot.png
+   -p numberOfCoresToUseForParallelization
+
+To run a cell, click on the corresponding cell and press **Ctrl + Enter** or **Shift + Enter**.
+
+References
+----------
+
+**BMC Bioinformatics Publication**:
+
+- Talevich, E., Shain, A. H., Botton, T., & Bastian, B. C. (2014). CNVkit: Genome-wide copy number detection and visualization from targeted sequencing. PLOS Computational Biology 12(4): e1004873. doi: 10.1371/journal.pcbi.1004873
+
+**GitHub repositories**:
+
+- `etal/cnvkit <https://github.com/etal/cnvkit.git>`_
+- `amora197/cnvkit <https://github.com/amora197/cnvkit.git>`_

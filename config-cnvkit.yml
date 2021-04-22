@@ -1,0 +1,115 @@
+# paths to bam files
+paths:
+  # Venecia
+  1-C7: &1-C7 /home/anibal/bam_files/coffee/1-C7.bam
+  # Caturra
+  15-A7: &15-A7 /home/anibal/bam_files/coffee/15-A7.bam
+  15-D6: &15-D6 /home/anibal/bam_files/coffee/15-D6.bam
+  # Catuai
+  16-C5: &16-C5 /home/anibal/bam_files/coffee/16-C5.bam
+  16-D7: &16-D7 /home/anibal/bam_files/coffee/16-D7.bam
+
+# path to bed file for targets
+bed_path: /home/anibal/bam_files/coffee/Arbor_CoffexomeV1-PredictedPotentialCovg-Exons.table.f1-f4f10f6.bed
+
+# path to FASTA file
+fasta_path: /home/anibal/bam_files/coffee/GCF_003713225.1_Cara_1.0_genomic.fna
+
+# path of output
+output_path: /home/anibal/GitHub/cnvkit-anibal/output/
+
+# references per variety to be created for making comparisons
+references:
+  venecia_ref:
+    output_ref: &venecia_ref venecia_reference.cnn
+    files_for_ref: 
+      - *1-C7
+  caturra_ref: 
+    output_ref: &caturra_ref caturra_reference.cnn
+    files_for_ref: 
+      - *15-A7 
+      - *15-D6
+  catuai_ref: 
+    output_ref: &catuai_ref catuai_reference.cnn
+    files_for_ref: 
+      - *16-C5 
+      - *16-D7
+
+# comparisons per variety to be analyzed
+comparisons:
+  venecia:
+    venecia-vs-1-C7:
+      reference: *venecia_ref
+      mutant: *1-C7
+    venecia-vs-15-A7:
+      reference: *venecia_ref
+      mutant: *15-A7
+    venecia-vs-15-D6:
+      reference: *venecia_ref
+      mutant: *15-D6
+    venecia-vs-16-C5:
+      reference: *venecia_ref
+      mutant: *16-C5
+    venecia-vs-16-D7:
+      reference: *venecia_ref
+      mutant: *16-D7
+  caturra:
+    caturra-vs-1-C7:
+      reference: *caturra_ref
+      mutant: *1-C7
+    caturra-vs-15-A7:
+      reference: *caturra_ref
+      mutant: *15-A7
+    caturra-vs-15-D6:
+      reference: *caturra_ref
+      mutant: *15-D6
+    caturra-vs-16-C5:
+      reference: *caturra_ref
+      mutant: *16-C5
+    caturra-vs-16-D7:
+      reference: *caturra_ref
+      mutant: *16-D7
+  catuai:
+    catuai-vs-1-C7:
+      reference: *catuai_ref
+      mutant: *1-C7
+    catuai-vs-15-A7:
+      reference: *catuai_ref
+      mutant: *15-A7
+    catuai-vs-15-D6:
+      reference: *catuai_ref
+      mutant: *15-D6
+    catuai-vs-16-C5:
+      reference: *catuai_ref
+      mutant: *16-C5
+    catuai-vs-16-D7:
+      reference: *catuai_ref
+      mutant: *16-D7
+
+# number of cores to run the analysis parallel
+cores: 6
+
+# list of chromosomes to be analyzed
+chromosomes: 
+  - NC_039898.1
+  - NC_039899.1
+  - NC_039900.1
+  - NC_039901.1
+  - NC_039902.1
+  - NC_039903.1
+  - NC_039904.1
+  - NC_039905.1
+  - NC_039906.1
+  - NC_039907.1
+  - NC_039908.1
+  - NC_039909.1
+  - NC_039910.1
+  - NC_039911.1
+  - NC_039912.1
+  - NC_039913.1
+  - NC_039914.1
+  - NC_039915.1
+  - NC_039916.1
+  - NC_039917.1
+  - NC_039918.1
+  - NC_039919.1

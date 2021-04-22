@@ -53,17 +53,17 @@ Open a new terminal window for conda to take effect. Verify the installation in 
 Git with conda
 ^^^^^^^^^^^^^^
 
-Git will be installed first to clone locally (download a copy to your local computer) the cnvkit repository from GitHub. To do so, run the following:
+Git will be installed first to clone locally (download a copy to your local computer) the **pbgl-cnvkit** repository from GitHub. To do so, run the following:
 
 ::
 
    $ conda install -c anaconda git
    
-After the installation, clone the cnvkit repository to the local computer in the desired directory.
+After the installation, clone the **pbgl-cnvkit** repository to the local computer in the desired directory.
 
 ::
 
-   $ git clone https://github.com/amora197/cnvkit.git
+   $ git clone https://github.com/amora197/pbgl-cnvkit.git
    
 Verify that the installation is complete by listing the files in the directory.
 
@@ -71,7 +71,35 @@ Verify that the installation is complete by listing the files in the directory.
 
    $ ls -l
    
-A folder called **cnvkit** should be listed in the directory.
+A folder called **pbgl-cnvkit** should be listed in the directory. Navigate into it and inspect its items. 
+
+::
+
+   $ cd pbgl-cnvkit
+   $ ls -l
+
+The **pbgl-cnvkit** directory should contain:
+
+- 3 folders:
+
+  - docs
+  - envs
+  - output
+  
+- 3 files:
+
+  - cnvkit-analysis.ipynb
+  - config-cnvkit.yml
+  - README.rst
+  
+Once inside the **pbgl-cnvkit** directory, clone **etal/cnvkit** repository that contains the workflow and source code for analyzing copy number variations/alterations.
+
+::
+
+   $ git clone --branch v0.9.7 --single-branch https://github.com/etal/cnvkit.git
+   $ ls -l
+   
+A new directory **cnvkit** should be present.
 
 Required Libraries with conda
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -87,7 +115,7 @@ There are two ways to install the rest of the necessary libraries to run cnvkit:
 Automatically (slower)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-One YAML file, **environment.yml**, is provided to automatically create a conda environment and install the dependent libraries. This creates the conda environment, along all necessary packages to run cnvkit. Run **environment.yml**:
+One YAML file, **environment.yml**, is provided inside the **envs/** directory to automatically create a conda environment and install the dependent libraries. This creates the conda environment, along all necessary packages to run cnvkit. Run **environment.yml**:
 
 ::
 
@@ -149,7 +177,7 @@ Once done, all the necessary packages should be installed. This can be verified 
 Running a Jupyter Notebook
 --------------------------
 
-To access the Jupyter Notebooks, run:
+To access the Jupyter Notebooks, run the following command inside the **pbgl-cnvkit** directory:
 
 ::
 
@@ -157,7 +185,7 @@ To access the Jupyter Notebooks, run:
    
 This command will start a Jupyter Notebook session inside the directory the command is run. The user can navigate between directories, visualize files, and edit files in the browser by clicking on directories or files, respectively.  
 
-Look for the directory **cnvkit** and click on it. Click on **cnvkit-analysis.ipynb** to open the Jupyter Notebook and run the analysis.
+Look for **cnvkit-analysis.ipynb** and click on it to open the Jupyter Notebook and run the analysis.
     
 .. note::
    Jupyter lets the user duplicate, rename, move, download, view, or edit files in a web browser. This can be done by clicking the box next to a file and choosing accordingly. 
@@ -167,7 +195,7 @@ Editing the Configuration File
 
 In order to run the CNVkit Jupyter Notebook, the user needs to feed it with a configuration file (**config-cnvkit.yml**) that specifies the paths to the bam files, comparisons to be done, chromosomes to analyze, and parameter definitions for calculating and plotting CNVs.  
 
-The configuration file **config-cnvkit.yml** can be found in the **cnvkit/config** directory.
+The configuration file **config-cnvkit.yml** can be found in the same directory as the Jupyter Notebook.
 
 .. note::
    The user needs to edit **config-cnvkit.yml** to point towards bam/bed/fasta files; specify comparisons and chromosomes to analyze; and define the output path.  
@@ -198,7 +226,7 @@ The configuration file **config-cnvkit.yml** contains multiple parameters to be 
 
 - `output_path`:
 
-  - path of output files (references, plots, CNVs)
+  - path of output files (references, plots, CNVs) to the **pbgl-cnvkit/output** directory
 
 - `references`:
 
@@ -249,7 +277,7 @@ Running the cnvkit-analysis Jupyter Notebook
 --------------------------------------------
 
 .. note::
-   It is recommended to duplicate the **cnvkit-analysis** notebook and then renaming the copy before doing any edits to the notebook.
+   It is recommended to duplicate the **cnvkit-analysis.ipynb** notebook and then renaming the copy before doing any edits to the notebook.
 
 Click on **cnvkit-analysis.ipynb** and a new tab will open the notebook.
 
@@ -285,7 +313,7 @@ Using wildcard * to specify all normal/control files to use for reference buildi
 
 ::
 
-   cnvkit.py batch --normal normalFile*.bam \
+   cnvkit/cnvkit.py batch --normal normalFile*.bam \
    --output-reference /output/path/nameOfReferenceToCreate.cnn \
    --fasta /path/fastaFile.fna \
    --targets /path/bedFile.bed \
@@ -299,7 +327,7 @@ Listing each normal/control file separately if wildcard cannot be applied.
 
 ::
 
-   cnvkit.py batch --normal normalFile1.bam normalFile2.bam normalFileN.bam \
+   cnvkit/cnvkit.py batch --normal normalFile1.bam normalFile2.bam normalFileN.bam \
    --output-reference /output/path/nameOfReferenceToCreate.cnn \
    --fasta /path/fastaFile.fna \
    --targets /path/bedFile.bed \
@@ -313,7 +341,7 @@ Using a reference for calculating coverage in the given regions from BAM read de
 
 ::
 
-   cnvkit.py batch mutantFile.bam \
+   cnvkit/cnvkit.py batch mutantFile.bam \
    -r /output/reference/path/referenceFile.cnn \
    -d /output/path
    -p numberOfCoresToUseForParallelization
@@ -325,7 +353,7 @@ Plot bin-level log2 coverages and segmentation calls together. Without any furth
 
 ::
 
-   cnvkit.py scatter /output/path/mutantFileName.cnr \
+   cnvkit/cnvkit.py scatter /output/path/mutantFileName.cnr \
    -s /output/path/mutantFileName.cns \
    -c chromosomeName
    -o /output/path/nameOfPlot.png

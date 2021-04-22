@@ -22,7 +22,7 @@ copyright = '2021, Anibal Morales (PBGL)'
 author = 'Anibal Morales (PBGL)'
 
 # The full version, including alpha/beta/rc tags
-release = '0.9.7'
+release = '0.1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -105,6 +105,6 @@ expressed do not necessarily reflect those of the International Atomic Energy Ag
         \newcommand{\sectionbreak}{\clearpage}
 '''
 latex_elements = {
-   'releasename': 'Version 1.0',
+   'releasename': 'Version 0.1.0',
    'maketitle': latex_maketitle,
 }
