@@ -1,0 +1,559 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PBGL CNVkit Analysis &mdash; CNVkit 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> CNVkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">PBGL CNVkit Analysis</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#installations">Installations</a><ul>
+<li><a class="reference internal" href="#miniconda3-conda">Miniconda3 (conda)</a></li>
+<li><a class="reference internal" href="#git-with-conda">Git with conda</a></li>
+<li><a class="reference internal" href="#required-libraries-with-conda">Required Libraries with conda</a><ul>
+<li><a class="reference internal" href="#automatically-slower">Automatically (slower)</a></li>
+<li><a class="reference internal" href="#manually-faster">Manually (faster)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-a-jupyter-notebook">Running a Jupyter Notebook</a></li>
+<li><a class="reference internal" href="#editing-the-configuration-file">Editing the Configuration File</a></li>
+<li><a class="reference internal" href="#running-the-cnvkit-analysis-jupyter-notebook">Running the cnvkit-analysis Jupyter Notebook</a><ul>
+<li><a class="reference internal" href="#setup-and-configuration-file-extraction">Setup and Configuration File Extraction</a></li>
+<li><a class="reference internal" href="#reference-creation">Reference Creation</a><ul>
+<li><a class="reference internal" href="#option-1">Option 1</a></li>
+<li><a class="reference internal" href="#option-2">Option 2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comparisons">Comparisons</a></li>
+<li><a class="reference internal" href="#plotting">Plotting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">CNVkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>PBGL CNVkit Analysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pbgl-cnvkit-analysis">
+<h1>PBGL CNVkit Analysis<a class="headerlink" href="#pbgl-cnvkit-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p><strong>[DRAFT]</strong></p>
+<p>Copy number variation (CNV) analysis using CNVkit, R, Jupyter Notebooks, Miniconda3, Git, along other packages.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is not an official IAEA publication but is made available as working material. The material has not undergone an official review by the IAEA. The views expressed do not necessarily reflect those of the International Atomic Energy Agency or its Member States and remain the responsibility of the contributors. The use of particular designations of countries or territories does not imply any judgement by the publisher, the IAEA, as to the legal status of such countries or territories, of their authorities and institutions or of the delimitation of their boundaries. The mention of names of specific companies or products (whether or not indicated as registered) does not imply any intention to infringe proprietary rights, nor should it be construed as an endorsement or recommendation on the part of the IAEA.</p>
+</div>
+</div>
+<div class="section" id="installations">
+<h2>Installations<a class="headerlink" href="#installations" title="Permalink to this headline">¶</a></h2>
+<p>Before installing any necessary software, it is recommended to check if the computer is running 32-bit or 64-bit for downloading Miniconda3. Run the following to verify the system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ uname -m
+</pre></div>
+</div>
+<div class="section" id="miniconda3-conda">
+<h3>Miniconda3 (conda)<a class="headerlink" href="#miniconda3-conda" title="Permalink to this headline">¶</a></h3>
+<p>Download the Miniconda3, or simply “conda”, installer:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html#linux-installers">Miniconda3 installer for Linux</a></p></li>
+</ul>
+</div></blockquote>
+<p>Run the downloaded installer (for a 64-bit system):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash Miniconda3-latest-Linux-x86_64.sh
+</pre></div>
+</div>
+<p>Open a new terminal window for conda to take effect. Verify the installation in new terminal window and update conda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda list
+$ conda update --all
+$ conda upgrade --all
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-with-conda">
+<h3>Git with conda<a class="headerlink" href="#git-with-conda" title="Permalink to this headline">¶</a></h3>
+<p>Git will be installed first to clone locally (download a copy to your local computer) the <strong>pbgl-cnvkit</strong> repository from GitHub. To do so, run the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c anaconda git
+</pre></div>
+</div>
+<p>After the installation, clone the <strong>pbgl-cnvkit</strong> repository to the local computer in the desired directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/amora197/pbgl-cnvkit.git
+</pre></div>
+</div>
+<p>Verify that the installation is complete by listing the files in the directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -l
+</pre></div>
+</div>
+<p>A folder called <strong>pbgl-cnvkit</strong> should be listed in the directory. Navigate into it and inspect its items.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd pbgl-cnvkit
+$ ls -l
+</pre></div>
+</div>
+<p>The <strong>pbgl-cnvkit</strong> directory should contain:</p>
+<ul class="simple">
+<li><p>3 folders:</p>
+<ul>
+<li><p>docs</p></li>
+<li><p>envs</p></li>
+<li><p>output</p></li>
+</ul>
+</li>
+<li><p>3 files:</p>
+<ul>
+<li><p>cnvkit-analysis.ipynb</p></li>
+<li><p>config-cnvkit.yml</p></li>
+<li><p>README.rst</p></li>
+</ul>
+</li>
+</ul>
+<p>Once inside the <strong>pbgl-cnvkit</strong> directory, clone <strong>etal/cnvkit</strong> repository that contains the workflow and source code for analyzing copy number variations/alterations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone --branch v0.9.7 --single-branch https://github.com/etal/cnvkit.git
+$ ls -l
+</pre></div>
+</div>
+<p>A new directory <strong>cnvkit</strong> should be present.</p>
+</div>
+<div class="section" id="required-libraries-with-conda">
+<h3>Required Libraries with conda<a class="headerlink" href="#required-libraries-with-conda" title="Permalink to this headline">¶</a></h3>
+<p>cnvkit has multiple dependencies, listed below:</p>
+<ul class="simple">
+<li><p>Git</p></li>
+<li><p>cnvkit</p></li>
+<li><p>Jupyter Notebook</p></li>
+</ul>
+<p>There are two ways to install the rest of the necessary libraries to run cnvkit: automatically or manually. The former is slower, providing a long coffee break (sometimes overnight durations) while the conda installations run. The latter proves a faster way to get the tool up-and-running.</p>
+<div class="section" id="automatically-slower">
+<h4>Automatically (slower)<a class="headerlink" href="#automatically-slower" title="Permalink to this headline">¶</a></h4>
+<p>One YAML file, <strong>environment.yml</strong>, is provided inside the <strong>envs/</strong> directory to automatically create a conda environment and install the dependent libraries. This creates the conda environment, along all necessary packages to run cnvkit. Run <strong>environment.yml</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda env create --file envs/environment.yml
+</pre></div>
+</div>
+<p>Once done, the created environment can be verified running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda env list
+</pre></div>
+</div>
+<p>Activate the created environment (<strong>cnvkit</strong>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate cnvkit
+</pre></div>
+</div>
+<p>Once done, all the necessary packages should be installed. This can be verified with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda list
+</pre></div>
+</div>
+</div>
+<div class="section" id="manually-faster">
+<h4>Manually (faster)<a class="headerlink" href="#manually-faster" title="Permalink to this headline">¶</a></h4>
+<p>To manually create and activate an environment, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name cnvkit
+</pre></div>
+</div>
+<p>Once done, the created environment can be verified running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda env list
+</pre></div>
+</div>
+<p>Activate the virtual environment with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate cnvkit
+</pre></div>
+</div>
+<p>Start running the installations of the necessary libraries, paying attention to the prompts for each one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install pyyaml
+$ conda install cnvkit
+$ conda install notebook
+</pre></div>
+</div>
+<p>Once done, all the necessary packages should be installed. This can be verified with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda list
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="running-a-jupyter-notebook">
+<h2>Running a Jupyter Notebook<a class="headerlink" href="#running-a-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<p>To access the Jupyter Notebooks, run the following command inside the <strong>pbgl-cnvkit</strong> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter notebook
+</pre></div>
+</div>
+<p>This command will start a Jupyter Notebook session inside the directory the command is run. The user can navigate between directories, visualize files, and edit files in the browser by clicking on directories or files, respectively.</p>
+<p>Look for <strong>cnvkit-analysis.ipynb</strong> and click on it to open the Jupyter Notebook and run the analysis.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Jupyter lets the user duplicate, rename, move, download, view, or edit files in a web browser. This can be done by clicking the box next to a file and choosing accordingly.</p>
+</div>
+</div>
+<div class="section" id="editing-the-configuration-file">
+<h2>Editing the Configuration File<a class="headerlink" href="#editing-the-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>In order to run the CNVkit Jupyter Notebook, the user needs to feed it with a configuration file (<strong>config-cnvkit.yml</strong>) that specifies the paths to the bam files, comparisons to be done, chromosomes to analyze, and parameter definitions for calculating and plotting CNVs.</p>
+<p>The configuration file <strong>config-cnvkit.yml</strong> can be found in the same directory as the Jupyter Notebook.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The user needs to edit <strong>config-cnvkit.yml</strong> to point towards bam/bed/fasta files; specify comparisons and chromosomes to analyze; and define the output path.</p>
+</div>
+<p>The configuration file <strong>config-cnvkit.yml</strong> contains multiple parameters to be defined by the user:</p>
+<ul class="simple">
+<li><p><cite>paths</cite>:</p>
+<ul>
+<li><p>sample names and their respective paths to <strong>.bam</strong> files</p></li>
+<li><p>samples can be named as desired but the sample name must be repeated after the colon and prefixed with a <cite>&amp;</cite> sign</p></li>
+<li><p>the <cite>&amp;</cite> prefix sign is used to reference the sample’s path in different places of the same configuration file</p></li>
+<li><p>example use:</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">paths</span><span class="p">:</span>
+  <span class="n">mysample</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">mysample</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">john</span><span class="o">/</span><span class="n">bam_files</span><span class="o">/</span><span class="n">mysample</span><span class="o">.</span><span class="n">bam</span>
+  <span class="n">XYZ</span><span class="o">-</span><span class="mi">123</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">XYZ</span><span class="o">-</span><span class="mi">123</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">john</span><span class="o">/</span><span class="n">bam_files</span><span class="o">/</span><span class="n">XYZ</span><span class="o">-</span><span class="mf">123.</span><span class="n">bam</span>
+  <span class="n">potato95</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">potato95</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">john</span><span class="o">/</span><span class="n">bam_files</span><span class="o">/</span><span class="n">potato95</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>bed_path</cite>:</p>
+<ul>
+<li><p>path to bed file if using varying window sizes</p></li>
+</ul>
+</li>
+<li><p><cite>fasta_path</cite>:</p>
+<ul>
+<li><p>path to fasta file</p></li>
+</ul>
+</li>
+<li><p><cite>output_path</cite>:</p>
+<ul>
+<li><p>path of output files (references, plots, CNVs) to the <strong>pbgl-cnvkit/output</strong> directory</p></li>
+</ul>
+</li>
+<li><p><cite>references</cite>:</p>
+<ul>
+<li><p>references to use for making comparisons</p></li>
+<li><p>a reference can be built from multiple “normal” files, which are in turn listed under <cite>files_for_ref</cite></p></li>
+<li><p>an output reference name needs to be defined</p></li>
+<li><p>example use:</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">references</span><span class="p">:</span>
+  <span class="n">first_reference</span><span class="p">:</span>
+    <span class="n">output_ref</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">first_reference</span> <span class="n">my_first_reference</span><span class="o">.</span><span class="n">cnn</span>
+    <span class="n">files_for_ref</span><span class="p">:</span>
+      <span class="o">-</span> <span class="o">*</span><span class="n">first_bam</span>
+      <span class="o">-</span> <span class="o">*</span><span class="n">second_bam</span>
+      <span class="o">-</span> <span class="o">*</span><span class="n">third_bam</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>comparisons</cite>:</p>
+<ul>
+<li><p>comparison names with respective reference and mutant samples per comparison</p></li>
+<li><p>each comparison can be named as desired</p></li>
+<li><p>the sample names to be used as <cite>control</cite> and <cite>mutant</cite> need to be prefixed by a <cite>*</cite> sign</p></li>
+<li><p>the <cite>*</cite> prefixed sign is used to extract the sample’s path defined in the <cite>paths</cite> section</p></li>
+<li><p>example:</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">comparisons</span><span class="p">:</span>
+  <span class="n">variety</span><span class="o">-</span><span class="n">x</span><span class="p">:</span>
+    <span class="n">comparison</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+      <span class="n">reference</span><span class="p">:</span> <span class="o">*</span><span class="n">reference</span><span class="o">-</span><span class="n">one</span>
+      <span class="n">mutant</span><span class="p">:</span> <span class="o">*</span><span class="n">potato95</span>
+    <span class="n">a</span><span class="o">-</span><span class="n">different</span><span class="o">-</span><span class="n">comparison</span><span class="o">-</span><span class="mi">278</span><span class="n">asd</span><span class="p">:</span>
+      <span class="n">reference</span><span class="p">:</span> <span class="o">*</span><span class="n">another</span><span class="o">-</span><span class="n">reference</span>
+      <span class="n">mutant</span><span class="p">:</span> <span class="o">*</span><span class="n">XYZ</span><span class="o">-</span><span class="mi">123</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>chromosomes</cite>:</p>
+<ul>
+<li><p>list of chromosome names to analyze</p></li>
+<li><p>chromosome names can be extracted from a bam file’s header</p></li>
+</ul>
+</li>
+<li><p><cite>cores</cite>:</p>
+<ul>
+<li><p>a digit, specifying the number of cores to parallelize the workflow</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="running-the-cnvkit-analysis-jupyter-notebook">
+<h2>Running the cnvkit-analysis Jupyter Notebook<a class="headerlink" href="#running-the-cnvkit-analysis-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended to duplicate the <strong>cnvkit-analysis.ipynb</strong> notebook and then renaming the copy before doing any edits to the notebook.</p>
+</div>
+<p>Click on <strong>cnvkit-analysis.ipynb</strong> and a new tab will open the notebook.</p>
+<p>The notebook contains cells that are populated by text or code. Information about each command is provided in the notebook to guide the user. It consists of four parts:</p>
+<ol class="arabic simple">
+<li><p>Setup and Configuration File Extraction</p></li>
+<li><p>Reference Creation</p></li>
+<li><p>Comparisons</p></li>
+<li><p>Plotting</p></li>
+</ol>
+<div class="section" id="setup-and-configuration-file-extraction">
+<h3>Setup and Configuration File Extraction<a class="headerlink" href="#setup-and-configuration-file-extraction" title="Permalink to this headline">¶</a></h3>
+<p>A configuration file config.cnvkit.yml in the config/ directory is provided for specifying file paths, references to build, comparisons to analyze, chromosomes to plot, and cores for parallelization.</p>
+<p>All the analyses are done by extracting parameters from the configuration file, looping with Python, and running bash system commands through Python’s os library.</p>
+</div>
+<div class="section" id="reference-creation">
+<h3>Reference Creation<a class="headerlink" href="#reference-creation" title="Permalink to this headline">¶</a></h3>
+<p>Compiling a copy-number reference from given files or directory (containing normal samples). The reference can be constructed from zero, one or multiple control samples. If given a reference genome, also calculate the GC content and repeat-masked proportion of each region. Files needed:</p>
+<ul class="simple">
+<li><p>bam files of normal/control sample(s)</p></li>
+<li><p>fasta file</p></li>
+<li><p>bed file with target regions</p></li>
+</ul>
+<p>There are two ways to run the command:</p>
+<div class="section" id="option-1">
+<h4>Option 1<a class="headerlink" href="#option-1" title="Permalink to this headline">¶</a></h4>
+<p>Using wildcard * to specify all normal/control files to use for reference building.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cnvkit</span><span class="o">/</span><span class="n">cnvkit</span><span class="o">.</span><span class="n">py</span> <span class="n">batch</span> <span class="o">--</span><span class="n">normal</span> <span class="n">normalFile</span><span class="o">*.</span><span class="n">bam</span> \
+<span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">reference</span> <span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">nameOfReferenceToCreate</span><span class="o">.</span><span class="n">cnn</span> \
+<span class="o">--</span><span class="n">fasta</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">fastaFile</span><span class="o">.</span><span class="n">fna</span> \
+<span class="o">--</span><span class="n">targets</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">bedFile</span><span class="o">.</span><span class="n">bed</span> \
+<span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">dir</span> <span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">path</span> \
+<span class="o">-</span><span class="n">p</span> <span class="n">numberOfCoresToUseForParallelization</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-2">
+<h4>Option 2<a class="headerlink" href="#option-2" title="Permalink to this headline">¶</a></h4>
+<p>Listing each normal/control file separately if wildcard cannot be applied.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cnvkit</span><span class="o">/</span><span class="n">cnvkit</span><span class="o">.</span><span class="n">py</span> <span class="n">batch</span> <span class="o">--</span><span class="n">normal</span> <span class="n">normalFile1</span><span class="o">.</span><span class="n">bam</span> <span class="n">normalFile2</span><span class="o">.</span><span class="n">bam</span> <span class="n">normalFileN</span><span class="o">.</span><span class="n">bam</span> \
+<span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">reference</span> <span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">nameOfReferenceToCreate</span><span class="o">.</span><span class="n">cnn</span> \
+<span class="o">--</span><span class="n">fasta</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">fastaFile</span><span class="o">.</span><span class="n">fna</span> \
+<span class="o">--</span><span class="n">targets</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">bedFile</span><span class="o">.</span><span class="n">bed</span> \
+<span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">dir</span> <span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">path</span> \
+<span class="o">-</span><span class="n">p</span> <span class="n">numberOfCoresToUseForParallelization</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="comparisons">
+<h3>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
+<p>Using a reference for calculating coverage in the given regions from BAM read depths. Command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cnvkit</span><span class="o">/</span><span class="n">cnvkit</span><span class="o">.</span><span class="n">py</span> <span class="n">batch</span> <span class="n">mutantFile</span><span class="o">.</span><span class="n">bam</span> \
+<span class="o">-</span><span class="n">r</span> <span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">reference</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">referenceFile</span><span class="o">.</span><span class="n">cnn</span> \
+<span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">path</span>
+<span class="o">-</span><span class="n">p</span> <span class="n">numberOfCoresToUseForParallelization</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plotting">
+<h3>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h3>
+<p>Plot bin-level log2 coverages and segmentation calls together. Without any further arguments, this plots the genome-wide copy number in a form familiar to those who have used array comparative genomic hybridization (aCGH). The options –chromosome or -c focuses the plot on the specified region. Command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cnvkit</span><span class="o">/</span><span class="n">cnvkit</span><span class="o">.</span><span class="n">py</span> <span class="n">scatter</span> <span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">mutantFileName</span><span class="o">.</span><span class="n">cnr</span> \
+<span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">mutantFileName</span><span class="o">.</span><span class="n">cns</span> \
+<span class="o">-</span><span class="n">c</span> <span class="n">chromosomeName</span>
+<span class="o">-</span><span class="n">o</span> <span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">nameOfPlot</span><span class="o">.</span><span class="n">png</span>
+<span class="o">-</span><span class="n">p</span> <span class="n">numberOfCoresToUseForParallelization</span>
+</pre></div>
+</div>
+<p>To run a cell, click on the corresponding cell and press <strong>Ctrl + Enter</strong> or <strong>Shift + Enter</strong>.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p><strong>BMC Bioinformatics Publication</strong>:</p>
+<ul class="simple">
+<li><p>Talevich, E., Shain, A. H., Botton, T., &amp; Bastian, B. C. (2014). CNVkit: Genome-wide copy number detection and visualization from targeted sequencing. PLOS Computational Biology 12(4): e1004873. doi: 10.1371/journal.pcbi.1004873</p></li>
+</ul>
+<p><strong>GitHub repositories</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/etal/cnvkit.git">etal/cnvkit</a></p></li>
+<li><p><a class="reference external" href="https://github.com/amora197/cnvkit.git">amora197/cnvkit</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anibal Morales (PBGL).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
