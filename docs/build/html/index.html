@@ -88,7 +88,10 @@
 <li><a class="reference internal" href="#background">Background</a></li>
 <li><a class="reference internal" href="#installations">Installations</a><ul>
 <li><a class="reference internal" href="#miniconda3-conda">Miniconda3 (conda)</a></li>
-<li><a class="reference internal" href="#git-with-conda">Git with conda</a></li>
+<li><a class="reference internal" href="#git-with-conda">Git with conda</a><ul>
+<li><a class="reference internal" href="#cloning-the-necessary-repositories">Cloning the Necessary Repositories</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#required-libraries-with-conda">Required Libraries with conda</a><ul>
 <li><a class="reference internal" href="#automatically-slower">Automatically (slower)</a></li>
 <li><a class="reference internal" href="#manually-faster">Manually (faster)</a></li>
@@ -223,12 +226,10 @@ $ conda upgrade --all
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c anaconda git
 </pre></div>
 </div>
+<div class="section" id="cloning-the-necessary-repositories">
+<h4>Cloning the Necessary Repositories<a class="headerlink" href="#cloning-the-necessary-repositories" title="Permalink to this headline">¶</a></h4>
 <p>After the installation, clone the <strong>pbgl-cnvkit</strong> repository to the local computer in the desired directory.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/amora197/pbgl-cnvkit.git
-</pre></div>
-</div>
-<p>Verify that the installation is complete by listing the files in the directory.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -l
 </pre></div>
 </div>
 <p>A folder called <strong>pbgl-cnvkit</strong> should be listed in the directory. Navigate into it and inspect its items.</p>
@@ -259,6 +260,7 @@ $ ls -l
 </pre></div>
 </div>
 <p>A new directory <strong>cnvkit</strong> should be present.</p>
+</div>
 </div>
 <div class="section" id="required-libraries-with-conda">
 <h3>Required Libraries with conda<a class="headerlink" href="#required-libraries-with-conda" title="Permalink to this headline">¶</a></h3>
