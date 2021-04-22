@@ -56,18 +56,15 @@ Git will be installed first to clone locally (download a copy to your local comp
 ::
 
    $ conda install -c anaconda git
-   
+
+Cloning the Necessary Repositories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 After the installation, clone the **pbgl-cnvkit** repository to the local computer in the desired directory.
 
 ::
 
    $ git clone https://github.com/amora197/pbgl-cnvkit.git
-   
-Verify that the installation is complete by listing the files in the directory.
-
-::
-
-   $ ls -l
    
 A folder called **pbgl-cnvkit** should be listed in the directory. Navigate into it and inspect its items. 
 
